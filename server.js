@@ -43,17 +43,8 @@ app.get('/health', async (req, res) => {
   }
 })
 
-// shutdown endpoint: delete after testing
-app.get('/shutdown', (req, res) => {
-  console.log('=== MANUAL SHUTDOWN TRIGGERED ===');
-  res.send('Shutting down...');
-  
-  setTimeout(() => {
-    process.kill(process.pid, 'SIGTERM');
-  }, 100);
-});
 
-// API Routes
+// API Router
 app.use('/api/dreams', dreamsRouter);
 
 // process.on('SIGINT', ()=> {
